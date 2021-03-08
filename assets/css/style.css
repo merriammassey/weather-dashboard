@@ -1,0 +1,289 @@
+:root {
+  --primary-color: white;
+  --secondary-color: #162e3b;
+  --tertiary-color: #d6cb28;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--secondary-color);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+
+/* HEADER / NAV BAR STYLES START */
+
+header {
+  padding: 20px 35px;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 0;
+  margin-bottom: 25px
+}
+
+header h1 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 36px;
+  color: var(--primary-color);
+}
+
+header a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+header nav {
+  margin: 7px 0;
+}
+
+/* HEADER / NAVBAR STYLES END */
+
+/* STYLE ALL SECTION TAGS */
+.main {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    margin-right: 0px;
+    padding-right: 0px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#five-day {
+    justify-content: space-between;
+}
+
+#selected-city {
+    width: 100%;
+    margin-bottom: 15px; 
+    border-radius: 10px;
+    display: block;
+}
+.form-input {
+  border: 1px solid var(--secondary-color);
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  color: var(--secondary-color);
+  width: 100%;
+  margin-bottom: 15px; 
+  border-radius: 10px;
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.form-input:focus {
+  background-color: rgba(255,255,255, 1);
+  outline: none;
+}
+
+.hero-form label {
+  margin: 0 5px;
+}
+
+.hero-form button {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+} 
+
+
+/* SECTION TITLE STYLES START */
+.section-title {
+  font-size: 48px;
+  border-bottom: 3px solid;
+  color: var(--secondary-color);
+  padding-bottom: 20px;
+  text-align: center;
+  margin: 0 auto 35px auto;
+  width: 50%;
+}
+
+.primary-border {
+  border-color: var(--primary-color);
+}
+
+.secondary-border {
+  border-color: var(--tertiary-color);
+}
+/* SECTION TITLE STYLES END */
+
+
+
+
+.contact-form input, .contact-form textarea {
+  border: 1px solid var(--secondary-color);
+  display: block;
+  padding: 7px 15px;
+  font-size: 16px;
+  color: var(--secondary-color);
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  background-color: rgba(255,255,255, 1);
+  outline: none;
+}
+
+.contact-form button {
+  width: 100%;
+  border: none;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.contact-form button:hover {
+  color: var(--primary-color);
+  background: var(--tertiary-color);
+}
+
+.contact-info a {
+  color: var(--primary-color);
+}
+
+
+/* UTILITIES */
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex-row {
+  display: flex;
+}
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+  header {
+    padding-bottom: 0;
+    justify-content: center;
+    position: relative;
+  }
+
+  header h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav ul {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  header nav ul li a {
+    font-size: 20px;
+  }
+
+  footer h2, footer div {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-cta, .hero-form {
+    width: 100%;
+  }
+  
+  .hero-cta {
+    text-align: center;
+  }
+
+  .section-title {
+    width: 80%;
+  }
+  
+  .trainer {
+    flex: 0 70%;
+  }
+  
+  .contact-info iframe{
+    flex: 1 100%;
+  }
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+  section {
+    padding: 30px 15px;
+  }
+
+  .step h3 {
+    flex: 1 100%;
+    text-align: center;
+  }
+
+  .step-info {
+    flex: 2 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .step-img {
+    flex: 0 32%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .step-text {
+    flex: 100%;  
+  }
+
+  .trainer-bio h3, .trainer-bio h4 {
+    display: block;
+  }
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+  .hero-form button {
+    width: 100%;
+  }
+
+  .section-title {
+    width: 95%;
+  }
+
+  .intro p {
+    width: 100%;
+  }
+
+  .trainer {
+    flex: 0 100%;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-info > * {
+    flex: 0 100%;
+  }
+
+  .contact-form {
+    order: 3;
+  }
+}
