@@ -10,9 +10,11 @@
 getWeatherData();
 */
 
+
 // on search button validate user input
 var getLocation = function() {
-    fetch("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDjPtZ4p5lg5rNZd4ZphD2Sdk3OPaCKryQ").then(function(response) {
+    var location = "austin";
+    fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+location+"&key=AIzaSyDjPtZ4p5lg5rNZd4ZphD2Sdk3OPaCKryQ").then(function(response) {
         response.json().then(function(data) {
           console.log(data);
         });
