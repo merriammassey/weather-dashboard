@@ -37,7 +37,9 @@
                 <input id="location" type="search" class="form-input" autofocus="true"></input>
                 <button id="location-submit" type="button" class="btn btn-primary">Submit</button>
                 <br>
-                <button class="col-md-3 i:hover">City</button>
+                <div id="city-buttons" class="list-group">
+                </div>
+
             </div>
             <!--right column / area-->
             <div class="col-md-9">
@@ -46,15 +48,15 @@
                 <div class="row align-items-center" id="selected-city">
                     <div class="card" id="selected-city">
                         <div class="card-body">
-                            <h2>City (Date)</h2>
+                            <h2 id="city-date">City (Date)</h2>
                             <br>
-                            <p>Temperature:</p>
+                            <p id="current-temp">Temperature:</p>
                             <br>
-                            <p>Humidity:</p>
+                            <p id="current-humidity">Humidity:</p>
                             <br>
-                            <p>Wind speed:</p>
+                            <p id="current-wind">Wind speed:</p>
                             <br>
-                            <p>UV Index:</p>
+                            <p id="current-uv">UV Index:</p>
                         </div>
                       </div>
                     
@@ -63,35 +65,37 @@
                 <!--forecast row-->
                 <div class="row align-items-center" id="five-day">
                    
-                    <div class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                    <div id="day-one" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                        <div id="day-one-date" class="card-header">Date</div>
+                        <div class="card-body">
+                        <h5 class="card-title">icon</h5>
+                        <p id="one-temp" class="card-text">Temperature: </p>
+                        <br>
+                        <p id="one-humidity" class="card-text">Humidity: </p>
+                    </div>
+                    </div>
+                    <div id="day-two" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
                         <div class="card-header">Header</div>
                         <div class="card-body">
                         <h5 class="card-title">Primary card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                    <div id="day-three" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
                         <div class="card-header">Header</div>
                         <div class="card-body">
                         <h5 class="card-title">Primary card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                    <div id="day-four" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
                         <div class="card-header">Header</div>
                         <div class="card-body">
                         <h5 class="card-title">Primary card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 12rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                    <div id="day-five" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
                         <div class="card-header">Header</div>
                         <div class="card-body">
                         <h5 class="card-title">Primary card title</h5>
@@ -103,6 +107,7 @@
         </div>
     </div>
     </main>
+    <script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
