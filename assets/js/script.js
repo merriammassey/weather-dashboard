@@ -58,7 +58,18 @@ var displayData = function(data, location) {
     document.querySelector("#current-temp").innerHTML = "Temperature: " + data.current.temp + "F";
     document.querySelector("#current-humidity").innerHTML = "Humidity: " + data.current.humidity + "%";
     document.querySelector("#current-wind").innerHTML = "Wind Speed: " + data.current.wind_speed + "mph";
-    document.querySelector("#current-uv").innerHTML = "UV Index: " + data.current.uvi;
+    document.querySelector("#current-uv").innerHTML = "<p id='current-text'> UV Index: " + data.current.uvi + "</p>";
+    
+    if(data.current.uvi <=5) {
+        document.querySelector("#current-text").setAttribute("style", "background-color: yellow;");
+    } else if (data.current.uvi <=7) {
+        document.querySelector("#current-text").setAttribute("style", "background-color: orange;");
+    } else if (data.current.uvi <=10) {
+        document.querySelector("#current-text").setAttribute("style", "background-color: red;");
+    } else {
+        document.querySelector("#current-text").setAttribute("style", "background-color: lavender;");
+    }
+    
     // display 5 day forecast
         document.querySelector("#date1").innerHTML = luxon.DateTime.now().plus({ days: 1}).toLocaleString(luxon.DateTime.DATE_SHORT);
         document.querySelector("#temp1").innerHTML = "Temperature: " + data.daily[1].temp.day+ "F";

@@ -22,6 +22,10 @@ body {
     padding-left: 3%;
 }
 
+#current-text {
+    max-width: 15%;
+}
+
 #icon {
     display: inline;
 }
