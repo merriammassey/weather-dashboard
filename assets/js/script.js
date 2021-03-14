@@ -5,9 +5,22 @@ var searchButton = document.querySelector("#location-submit");
 
 // add event listeners to forms
 searchButton.addEventListener("click", formSubmitHandler);
-});
 
+});
 // a function that can be called when the page loads for everything in local storage
+
+// function to display data from button name - pass it the event because it tells which button was clicked
+var displayButtonData = function(click){
+    //prevent the submission of a form
+    click.preventDefault();
+    location = click.target.innerHTML;
+    
+    //show five day cards when button is clicked
+    document.getElementById("five-day").style.display="flex";
+    document.getElementById("current-conditions").style.display="inline";
+    getLocation(location);
+    return false;
+}
 
 // a function that creates one button
 var makeCityButtons = function(location) {
@@ -16,12 +29,14 @@ var makeCityButtons = function(location) {
     //make city button
     var city = document.createElement("button");
     buttonsEl.appendChild(city);
+    city.setAttribute("type", "button");
     //city.classList.add("col-md-3");
     //city.classList.add("i:hover");
+    //location = (location[0].toUpperCase() + location.substring(1));
     city.innerText = location;
     console.log("make buttons");
     //add event listener
-    city.addEventListener("click", formSubmitHandler);
+    city.addEventListener("click", displayButtonData);
     //clear out the name
     var locationEl = document.querySelector("#location");
     locationEl.value = "";
@@ -33,20 +48,57 @@ var displayData = function(data, location) {
     //$("#date").text(date.toLocaleString(luxon.DateTime.DATE_SHORT));
     //display current data
     console.log(data.current.temp)
+    location = (location[0].toUpperCase() + location.substring(1));
     //$("#temp").text("Temperature: " + data.current.temp + "F");
     //$("#humidity").text("Humidity: " + data.current.humidity + "%");
-    document.querySelector("#city-date").innerHTML = location + " " + luxon.DateTime.now().toLocaleString(luxon.DateTime.DATE_SHORT);
+    var iconCode = data.current.weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/wn/" + iconCode +"@2x.png";
+    document.querySelector("#icon").setAttribute("src", iconUrl);
+    document.querySelector("#city-date").innerHTML = location + " " + luxon.DateTime.now().toLocaleString(luxon.DateTime.DATE_SHORT);  //set image source to ("http://openweathermap.org/img/wn/10d@2x.png") //data.current.weather[0].icon;
     document.querySelector("#current-temp").innerHTML = "Temperature: " + data.current.temp + "F";
     document.querySelector("#current-humidity").innerHTML = "Humidity: " + data.current.humidity + "%";
-    document.querySelector("#current-wind").innerHTML = "Wind Speed: " + data.current.weather.wind_speed + "mph";
+    document.querySelector("#current-wind").innerHTML = "Wind Speed: " + data.current.wind_speed + "mph";
     document.querySelector("#current-uv").innerHTML = "UV Index: " + data.current.uvi;
     // display 5 day forecast
-    document.querySelector("#day-one-date").innerHTML = luxon.DateTime.now().plus({ days: 1 }).toLocaleString(luxon.DateTime.DATE_SHORT);
-    document.querySelector("#one-temp").innerHTML = "Temperature: " + data.daily[1].temp.day+ "F";
-    document.querySelector("#one-humidity").innerHTML = "Humidity: " + data.daily[1].humidity + "%";
+        document.querySelector("#date1").innerHTML = luxon.DateTime.now().plus({ days: 1}).toLocaleString(luxon.DateTime.DATE_SHORT);
+        document.querySelector("#temp1").innerHTML = "Temperature: " + data.daily[1].temp.day+ "F";
+        document.querySelector("#humidity1").innerHTML = "Humidity: " + data.daily[1].humidity + "%";
+        var iconCode = data.daily[1].weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode +"@2x.png";
+        document.querySelector("#icon1").setAttribute("src", iconUrl);
+    
+        document.querySelector("#date2").innerHTML = luxon.DateTime.now().plus({ days: 2}).toLocaleString(luxon.DateTime.DATE_SHORT);
+        document.querySelector("#temp2").innerHTML = "Temperature: " + data.daily[2].temp.day+ "F";
+        document.querySelector("#humidity2").innerHTML = "Humidity: " + data.daily[2].humidity + "%";
+        var iconCode = data.daily[2].weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode +"@2x.png";
+        document.querySelector("#icon2").setAttribute("src", iconUrl);
 
+        document.querySelector("#date3").innerHTML = luxon.DateTime.now().plus({ days: 3}).toLocaleString(luxon.DateTime.DATE_SHORT);
+        document.querySelector("#temp3").innerHTML = "Temperature: " + data.daily[3].temp.day+ "F";
+        document.querySelector("#humidity3").innerHTML = "Humidity: " + data.daily[3].humidity + "%";
+        var iconCode = data.daily[3].weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode +"@2x.png";
+        document.querySelector("#icon3").setAttribute("src", iconUrl);
+
+        document.querySelector("#date4").innerHTML = luxon.DateTime.now().plus({ days: 4}).toLocaleString(luxon.DateTime.DATE_SHORT);
+        document.querySelector("#temp4").innerHTML = "Temperature: " + data.daily[4].temp.day+ "F";
+        document.querySelector("#humidity4").innerHTML = "Humidity: " + data.daily[4].humidity + "%";
+        var iconCode = data.daily[4].weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode +"@2x.png";
+        document.querySelector("#icon4").setAttribute("src", iconUrl);
+
+        document.querySelector("#date5").innerHTML = luxon.DateTime.now().plus({ days: 5}).toLocaleString(luxon.DateTime.DATE_SHORT);
+        document.querySelector("#temp5").innerHTML = "Temperature: " + data.daily[5].temp.day+ "F";
+        document.querySelector("#humidity5").innerHTML = "Humidity: " + data.daily[5].humidity + "%";
+        var iconCode = data.daily[5].weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode +"@2x.png";
+        document.querySelector("#icon5").setAttribute("src", iconUrl);
 }
 var storedCitiesArray = [];
+
+//make buttons from local storage data on page load
+//localStorage.getItem...
 
 var getWeatherData = function(location, latlng) {
     // use lat long and change units to imperial
@@ -62,7 +114,8 @@ var getWeatherData = function(location, latlng) {
             storedCitiesArray = storedCities;
         }
         //var storedCitiesArray = localStorage.getItem("storedCities");
-          
+        location = (location[0].toUpperCase()+ location.substring(1));
+
             //if the array doesn't include this location
             if(!storedCitiesArray.includes(location, 0)){
                 console.log("array doesn't have this location");
@@ -116,13 +169,18 @@ var getLocation = function(location) {
     
 // a function to handle the form input
 var formSubmitHandler = function(event) {
-    console.log("button was clicked");
+    //console.log("button was clicked");
+    
     // prevent the event from bubbling up to next element
     event.preventDefault();
 
     // get value from input element and trim off any spaces
     var locationEl = document.querySelector("#location");
     var location = locationEl.value.trim();
+
+    //show five day cards when button is clicked
+    document.getElementById("five-day").style.display="flex";
+    document.getElementById("current-conditions").style.display="inline";
 
     if (location) {
         //make a city button
@@ -135,12 +193,24 @@ var formSubmitHandler = function(event) {
         
     getLocation(location);
     //console.log(latlng);
-
-    
     } else {
     alert("Please enter a location");
-    
-    
  };
 }
-//getLocation();
+
+//function to make buttons load on page load
+var buttonHistory = () =>{
+    if(localStorage.getItem("storedCities")) {
+        storedCitiesArray = JSON.parse(localStorage.getItem("storedCities"));
+        console.log(localStorage.getItem("storedCities"))
+        //loop through makeCityButtons function
+        for (i=0; i<storedCitiesArray.length; i++) {
+            //console.log("storedCities");
+            makeCityButtons(storedCitiesArray[i]);
+        }
+        //location = ; //index0  
+    } else {
+        console.log("empty storage");
+    }
+}
+buttonHistory();

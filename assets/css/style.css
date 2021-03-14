@@ -15,7 +15,16 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+#five-day, #current-conditions {
+    display: none;
+}
+#selected-city {
+    padding-left: 3%;
+}
 
+#icon {
+    display: inline;
+}
 /* HEADER / NAV BAR STYLES START */
 
 header {
@@ -70,7 +79,7 @@ header nav {
   padding: 7px 15px;
   font-size: 16px;
   color: var(--secondary-color);
-  width: 100%;
+  width: 80%;
   margin-bottom: 15px; 
   border-radius: 10px;
   background-color: rgba(255,255,255, 0.75);

@@ -20,7 +20,7 @@
       rel="stylesheet"
     />  -->
 
-    
+    <script src="https://kit.fontawesome.com/b3fbea833f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />  
     <title>Weather Dashboard</title>
   </head>
@@ -34,9 +34,9 @@
         <div class="row justify-content-center">
             <!--Left column-->
             <div class="col-md-3 align-items-flex-start">
-                <input id="location" type="search" class="form-input" autofocus="true"></input>
-                <button id="location-submit" type="button" class="btn btn-primary">Submit</button>
-                <br>
+                <div class="display-block"><input id="location" type="search" class="form-input" autofocus="true"></input>
+                <button id="location-submit" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </div><br>
                 <div id="city-buttons" class="list-group">
                 </div>
 
@@ -45,10 +45,12 @@
             <div class="col-md-9">
                 <!--city row-->
                 
-                <div class="row align-items-center" id="selected-city">
+                <div class="row align-items-center">
                     <div class="card" id="selected-city">
-                        <div class="card-body">
-                            <h2 id="city-date">City (Date)</h2>
+                        <div id="current-conditions" class="card-body">
+                            <div><h2 id="city-date">City (Date)</h2>
+                                <img id="icon"/>
+                            </div>
                             <br>
                             <p id="current-temp">Temperature:</p>
                             <br>
@@ -65,41 +67,49 @@
                 <!--forecast row-->
                 <div class="row align-items-center" id="five-day">
                    
-                    <div id="day-one" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
-                        <div id="day-one-date" class="card-header">Date</div>
+                    <div id="day1" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                        <h5 id="date1" class="card-header">Date</h5>
                         <div class="card-body">
-                        <h5 class="card-title">icon</h5>
-                        <p id="one-temp" class="card-text">Temperature: </p>
+                        <img id="icon1"/>
+                        <p id="temp1" class="card-text">Temperature: </p>
                         <br>
-                        <p id="one-humidity" class="card-text">Humidity: </p>
-                    </div>
-                    </div>
-                    <div id="day-two" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p id="humidity1" class="card-text">Humidity: </p>
                         </div>
                     </div>
-                    <div id="day-three" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
-                        <div class="card-header">Header</div>
+                    <div id="day2" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                        <h5 id="date2" class="card-header">Date</h5>
                         <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <img id="icon2"/>
+                        <p id="temp2" class="card-text">Temperature: </p>
+                        <br>
+                        <p id="humidity2" class="card-text">Humidity: </p>
                         </div>
                     </div>
-                    <div id="day-four" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
-                        <div class="card-header">Header</div>
+                    <div id="day3" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                        <h5 id="date3" class="card-header">Date</h5>
                         <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <img id="icon3"/>
+                        <p id="temp3" class="card-text">Temperature: </p>
+                        <br>
+                        <p id="humidity3" class="card-text">Humidity: </p>
                         </div>
                     </div>
-                    <div id="day-five" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
-                        <div class="card-header">Header</div>
+                    <div id="day4" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                        <h5 id="date4" class="card-header">Date</h5>
                         <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <img id="icon4"/>
+                        <p id="temp4" class="card-text">Temperature: </p>
+                        <br>
+                        <p id="humidity4" class="card-text">Humidity: </p>
+                        </div>
+                    </div>
+                    <div id="day5" class="card text-white bg-primary mb-3" style="max-width: 12rem;">
+                        <h5 id="date5" class="card-header">Date</h5>
+                        <div class="card-body">
+                        <img id="icon5"/>
+                        <p id="temp5" class="card-text">Temperature: </p>
+                        <br>
+                        <p id="humidity5" class="card-text">Humidity: </p>
                         </div>
                     </div>
                 </div>
