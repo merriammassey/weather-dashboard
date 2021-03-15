@@ -13,7 +13,7 @@ searchButton.addEventListener("click", formSubmitHandler);
 var displayButtonData = function(click){
     //prevent the submission of a form
     click.preventDefault();
-    location = click.target.innerHTML;
+    var location = click.target.innerHTML;
     
     //show five day cards when button is clicked
     document.getElementById("five-day").style.display="flex";
@@ -48,7 +48,14 @@ var displayData = function(data, location) {
     //$("#date").text(date.toLocaleString(luxon.DateTime.DATE_SHORT));
     //display current data
     console.log(data.current.temp)
-    location = (location[0].toUpperCase() + location.substring(1));
+    //capitalize the first letter of each word
+    location = location.split(" ");
+        //(location[0].toUpperCase() + location.substring(1));
+        for (let i = 0; i < location.length; i++) {
+            location[i] = location[i][0].toUpperCase() + location[i].substr(1);
+        }
+        location = location.join(" ");
+        console.log(location);
     //$("#temp").text("Temperature: " + data.current.temp + "F");
     //$("#humidity").text("Humidity: " + data.current.humidity + "%");
     var iconCode = data.current.weather[0].icon;
@@ -69,7 +76,14 @@ var displayData = function(data, location) {
     } else {
         document.querySelector("#current-text").setAttribute("style", "background-color: lavender;");
     }
-    
+    /*
+    for (var i=0; i<5; i++) {
+        var divEl = document.createElemement("div")
+        divEl.classList.add("card", "text-white", "bg-primary", "mb-3");
+        var date = document.createElement();
+        date.innerHTML = 
+    } */
+
     // display 5 day forecast
         document.querySelector("#date1").innerHTML = luxon.DateTime.now().plus({ days: 1}).toLocaleString(luxon.DateTime.DATE_SHORT);
         document.querySelector("#temp1").innerHTML = "Temperature: " + data.daily[1].temp.day+ "F";

@@ -34,9 +34,14 @@
         <div class="row justify-content-center">
             <!--Left column-->
             <div class="col-md-3 align-items-flex-start">
-                <div class="display-block"><input id="location" type="search" class="form-input" autofocus="true"></input>
-                <button id="location-submit" type="button" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                </div><br>
+                <div>
+                    <form class="form-inline form-group">
+                    <input id="location" type="search" class="form-control" autofocus="true"></input>
+                    <button id="location-submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+    
+            <br>
                 <div id="city-buttons" class="list-group">
                 </div>
 
@@ -48,9 +53,9 @@
                 <div class="row align-items-center">
                     <div class="card" id="selected-city">
                         <div id="current-conditions" class="card-body">
-                            <div><h2 id="city-date">City (Date)</h2>
+                            <span><h2 id="city-date">City (Date)</h2>
                                 <img id="icon"/>
-                            </div>
+                            </span>
                             <br>
                             <p id="current-temp">Temperature:</p>
                             <br>

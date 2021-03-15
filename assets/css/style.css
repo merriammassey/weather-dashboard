@@ -26,9 +26,10 @@ body {
     max-width: 15%;
 }
 
-#icon {
+#icon, h2 {
     display: inline;
 }
+
 /* HEADER / NAV BAR STYLES START */
 
 header {
