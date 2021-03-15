@@ -139,8 +139,13 @@ var getWeatherData = function(location, latlng) {
             storedCitiesArray = storedCities;
         }
         //var storedCitiesArray = localStorage.getItem("storedCities");
-        location = (location[0].toUpperCase()+ location.substring(1));
-
+        location = location.split(" ");
+        //(location[0].toUpperCase() + location.substring(1));
+        for (let i = 0; i < location.length; i++) {
+            location[i] = location[i][0].toUpperCase() + location[i].substr(1);
+        }
+        location = location.join(" ");
+        
             //if the array doesn't include this location
             if(!storedCitiesArray.includes(location, 0)){
                 console.log("array doesn't have this location");
