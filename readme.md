@@ -1,7 +1,7 @@
 # Weather Dashboard
 
 ## Purpose
-A website that displays current and future weather conditions.
+A web app that uses the Open Weather API to display current and future weather conditions of various locations and displays recent searches.
 
 ## Built With
 * HTML
