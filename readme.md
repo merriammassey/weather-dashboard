@@ -8,7 +8,10 @@ A web app that uses the Open Weather API to display current and future weather c
 * CSS
 * JavaScript
 
-## Website
+## Future Development
+This was my first project leveraging third party APIs. I plan to revise it by implementing what I have learned about modularization and separation of concerns.
+
+## Deployment
 https://merriammassey.github.io/weather-dashboard/
 
 ## Screenshot
